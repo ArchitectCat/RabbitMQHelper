@@ -100,7 +100,7 @@ module Arguments =
         | [<CliPrefix(CliPrefix.None)>] Create of ParseResults<CreateArgs>
         | [<CliPrefix(CliPrefix.None)>] Delete of ParseResults<DeleteArgs>
         | [<CliPrefix(CliPrefix.None)>] Bind of ParseResults<BindQueueArgs>
-        | [<CliPrefix(CliPrefix.None)>] UnBind of ParseResults<BindQueueArgs>
+        | [<CliPrefix(CliPrefix.None)>] UnBind of ParseResults<UnBindQueueArgs>
 
         interface IArgParserTemplate with
             member s.Usage =
