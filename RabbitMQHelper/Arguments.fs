@@ -97,6 +97,8 @@ module Arguments =
     type CliArgs =
         | [<Unique; Mandatory; AltCommandLine("-u")>] User of user: string
         | [<Unique; Mandatory; AltCommandLine("-p")>] Pass of pass: string
+        | [<Unique; Mandatory>] Host of string
+        | [<Unique; Mandatory>] Port of int32
         | [<CliPrefix(CliPrefix.None)>] Create of ParseResults<CreateArgs>
         | [<CliPrefix(CliPrefix.None)>] Delete of ParseResults<DeleteArgs>
         | [<CliPrefix(CliPrefix.None)>] Bind of ParseResults<BindQueueArgs>
@@ -107,6 +109,8 @@ module Arguments =
                 match s with
                 | User _ -> "username to use."
                 | Pass _ -> "password to use."
+                | Host _ -> "hostname to use."
+                | Port _ -> "port to use."
                 | Create _ -> "create an exchange or queue."
                 | Delete _ -> "delete an exchange or queue."
                 | Bind _ -> "bind the queue to the exchange."
